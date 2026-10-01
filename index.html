@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#24140f">
+  <title>A Caneca do Dragão — Clicker de Taverna</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-icon" aria-hidden="true"></span>
+        <div><h1>A Caneca do Dragão</h1><div class="subtitle">TAVERNA • DESDE A ERA DOS REINOS</div></div>
+      </div>
+      <div class="stat"><span class="stat-label">Ouro no caixa</span><span class="stat-value" id="gold">0</span></div>
+      <div class="stat"><span class="stat-label">Renda da taverna</span><span class="stat-value" id="ops">0 <small>ouro/s</small></span></div>
+      <div class="toolbar" aria-label="Controles de jogo">
+        <button class="tool-button" id="save-button" title="Salvar agora">▣ Salvar</button>
+        <button class="tool-button" id="load-button" title="Carregar jogo salvo">↻ Carregar</button>
+        <button class="tool-button" id="admin-button" type="button" aria-pressed="false" title="Ativar ou desativar o modo de teste">ADM: desligado</button>
+        <button class="tool-button" id="reset-button" title="Começar uma nova taverna">✕ Reiniciar</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <section class="scene-frame" aria-label="Interior da taverna">
+        <div class="scene stage-0" id="scene">
+          <div class="wall-planks"></div><div class="beam"></div>
+          <div class="window window-one"><i class="moon"></i></div><div class="window window-two"><i class="moon"></i></div>
+          <div class="shelf"></div><div class="torch torch-left"></div><div class="torch torch-right"></div>
+          <div class="hanging-sign" id="sign">A Caneca do Dragão</div>
+          <div class="mantel"></div><div class="fireplace"></div>
+          <div class="customer customer-one"></div><div class="customer customer-two"></div><div class="customer customer-three"></div>
+          <div class="table table-one"></div><div class="table table-two"></div><div class="table table-three"></div>
+          <div class="barrel barrel-left"></div><div class="barrel barrel-right"></div><div class="bar"></div>
+          <button class="mug-button" id="mug-button" aria-label="Clique na caneca para ganhar ouro">
+            <span class="mug"><i class="beer"></i><b class="mug-mark">★</b></span>
+          </button>
+          <button class="traveler" id="traveler" aria-label="Clicar no viajante dourado para receber um bônus"><span>Viajante<br>dourado</span></button>
+          <div class="click-hint" id="click-hint">CLIQUE NA CANECA • +1 OURO</div>
+          <div class="scene-note" id="scene-note">NOITE TRANQUILA</div>
+          <div class="floating-layer" id="floating-layer" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <aside class="shop" aria-label="Loja de melhorias">
+        <div class="shop-head"><h2 class="shop-title">Balcão de melhorias</h2><div class="shop-sub">Invista no negócio, mestre da taverna.</div></div>
+        <div class="tabs" role="tablist" aria-label="Categorias da loja">
+          <button class="tab-button" role="tab" id="tab-staff" aria-selected="true" data-tab="staff">Funcionários</button>
+          <button class="tab-button" role="tab" id="tab-mugs" aria-selected="false" data-tab="mugs">Canecas</button>
+        </div>
+        <div class="boost-indicator" id="boost-indicator">✦ BÔNUS DO VIAJANTE: 2x por <span id="boost-time">20</span>s ✦</div>
+        <div class="shop-list" id="shop-list" role="tabpanel" aria-live="polite"></div>
+      </aside>
+    </div>
+
+    <div class="bottom-grid">
+      <section class="achievement-panel" aria-label="Conquistas">
+        <div class="panel-heading">✦ Conquistas da casa</div><div class="achievement-list" id="achievement-list"></div>
+      </section>
+      <section class="log-panel" aria-label="Novidades da taverna">
+        <div class="panel-heading">Diário do balcão</div><div class="log-content" id="log-content">A lareira está acesa. Sua primeira moeda está a um clique de distância.</div>
+      </section>
+    </div>
+    <p class="footer-note">Seu progresso é salvo automaticamente neste navegador.</p>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
